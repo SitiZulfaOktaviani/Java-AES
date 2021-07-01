@@ -6,6 +6,7 @@ import java.util.Base64;
 import java.util.Random;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,7 +39,6 @@ public class zulfa extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         btnKunci = new javax.swing.JButton();
-        kunci = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         textEnkrip = new javax.swing.JTextArea();
         btnEnkrip = new javax.swing.JButton();
@@ -48,10 +48,11 @@ public class zulfa extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnClear = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        kunci = new javax.swing.JTextField();
+        errorLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Siti Zulfa Oktaviani");
-        setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(47, 57, 59));
 
@@ -94,9 +95,6 @@ public class zulfa extends javax.swing.JFrame {
             }
         });
 
-        kunci.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        kunci.setForeground(new java.awt.Color(255, 255, 255));
-
         textEnkrip.setColumns(20);
         textEnkrip.setRows(5);
         jScrollPane1.setViewportView(textEnkrip);
@@ -135,6 +133,8 @@ public class zulfa extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Text / Kalimat");
 
+        errorLabel.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -142,27 +142,9 @@ public class zulfa extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(kunci, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnKunci))
-                                .addComponent(jScrollPane1)
-                                .addComponent(btnEnkrip, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(jLabel2))
-                        .addGap(65, 65, 65)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnClear)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnDekrip))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(errorLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,7 +160,28 @@ public class zulfa extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel13)
                                     .addComponent(jLabel12))))
-                        .addContainerGap(677, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(kunci, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnKunci))
+                                .addComponent(jScrollPane1)
+                                .addComponent(btnEnkrip, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jLabel2))
+                        .addGap(65, 65, 65)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnClear)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                                .addComponent(btnDekrip))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane2))
+                        .addGap(192, 192, 192))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,12 +199,12 @@ public class zulfa extends javax.swing.JFrame {
                             .addComponent(jLabel13)
                             .addComponent(jLabel10)))
                     .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(kunci)
-                    .addComponent(btnKunci))
+                    .addComponent(btnKunci)
+                    .addComponent(kunci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -215,6 +218,8 @@ public class zulfa extends javax.swing.JFrame {
                             .addComponent(btnEnkrip)
                             .addComponent(btnDekrip)
                             .addComponent(btnClear))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(errorLabel)
                         .addContainerGap())
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
@@ -265,7 +270,7 @@ public class zulfa extends javax.swing.JFrame {
         } 
         catch (Exception e) 
         {
-            System.out.println("Error while encrypting: " + e.toString());
+            JOptionPane.showMessageDialog(null,"Error melakukan enkripsi data kunci salah atau kosong");
         }
         return null;
     }
@@ -281,7 +286,7 @@ public class zulfa extends javax.swing.JFrame {
         } 
         catch (Exception e) 
         {
-            System.out.println("Error while decrypting: " + e.toString());
+             JOptionPane.showMessageDialog(null,"Error melakukan dekripsi data kunci salah atau kosong");
         }
         return null;
     }
@@ -368,6 +373,7 @@ public class zulfa extends javax.swing.JFrame {
     private javax.swing.JButton btnDekrip;
     private javax.swing.JButton btnEnkrip;
     private javax.swing.JButton btnKunci;
+    private javax.swing.JLabel errorLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -380,7 +386,7 @@ public class zulfa extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel kunci;
+    private javax.swing.JTextField kunci;
     private javax.swing.JTextArea textDekrip;
     private javax.swing.JTextArea textEnkrip;
     // End of variables declaration//GEN-END:variables
